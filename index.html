@@ -37,7 +37,7 @@
 html{scroll-behavior:smooth;scroll-padding-top:84px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{background:var(--paper);color:var(--ink);font-family:var(--grot);font-size:16.5px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--red);color:#fff}
 .wrap{max-width:1240px;margin-inline:auto;padding-inline:24px}
@@ -173,7 +173,7 @@ a{color:inherit;text-decoration:none}
 .about-grid{display:grid;grid-template-columns:1fr;gap:48px}
 @media (min-width:960px){.about-grid{grid-template-columns:5fr 6fr;gap:70px;align-items:center}}
 .about-photo{position:relative;transform:rotate(-1.2deg)}
-.about-photo img{border:1.5px solid var(--rule-strong);width:100%}
+.about-photo img{border:1.5px solid var(--rule-strong);width:100%;height:auto}
 .tape{position:absolute;width:110px;height:30px;background:rgba(216,22,28,.85);top:-14px;left:34px;transform:rotate(-4deg);z-index:2}
 .tape.b{top:auto;bottom:-14px;left:auto;right:34px;transform:rotate(3deg)}
 .about-copy h2{font-family:var(--disp);font-size:clamp(28px,4vw,46px);text-transform:uppercase;line-height:1.05;margin-bottom:20px}
