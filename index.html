@@ -4,573 +4,631 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pulukamu XC Print Services | Custom Printing &amp; Apparel, Christchurch</title>
-<meta name="description" content="Custom t-shirt and hoodie printing, team and club uniforms, embroidery and event merch, printed in Christchurch. Send your artwork and numbers and get a straight price back.">
-<meta name="theme-color" content="#FFFFFF">
+<meta name="description" content="Custom t-shirt and hoodie printing, team and club uniforms, embroidery and event merch, printed in Christchurch. Send your artwork and numbers, get a straight price back.">
+<meta name="theme-color" content="#F5F2EC">
 <link rel="canonical" href="https://pulukamu-xc-print-services-demo.vercel.app/">
-
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pulukamu XC Print Services | Custom Printing &amp; Apparel, Christchurch">
 <meta property="og:description" content="Screen printing, embroidery and event merch for Christchurch clubs, churches, schools and small businesses.">
-<meta property="og:image" content="https://images.unsplash.com/photo-1614494718779-0ba0e88b9859?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=75">
+<meta property="og:image" content="https://pulukamu-xc-print-services-demo.vercel.app/img/bottle-run-box.webp">
 <meta name="twitter:card" content="summary_large_image">
-
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/favicon.png">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<noscript><style>#intro{display:none}.reveal{opacity:1!important;transform:none!important}</style></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F2EC;
+  --paper-2:#EDE9E0;
+  --ink:#161213;
+  --ink-70:rgba(22,18,19,.72);
+  --red:#D8161C;
+  --red-dk:#AE0F14;
+  --rule:rgba(22,18,19,.16);
+  --rule-strong:rgba(22,18,19,.85);
+  --mono:'Space Mono',ui-monospace,monospace;
+  --grot:'Space Grotesk',sans-serif;
+  --disp:'Archivo Black',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--paper);color:var(--ink);font-family:var(--grot);font-size:16.5px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--red);color:#fff}
+.wrap{max-width:1240px;margin-inline:auto;padding-inline:24px}
+
+/* reveals */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.on{opacity:1;transform:none}
+.rv[data-d="1"]{transition-delay:.08s}.rv[data-d="2"]{transition-delay:.16s}.rv[data-d="3"]{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* ---------- ticker ---------- */
+.ticker{background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;padding:8px 0;text-transform:uppercase}
+.ticker .wrap{display:flex;justify-content:space-between;gap:18px}
+.ticker span:last-child{display:none}
+@media (min-width:720px){.ticker span:last-child{display:inline}}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:80;background:var(--paper);border-bottom:1.5px solid var(--rule-strong);transition:box-shadow .3s var(--ease)}
+.nav.scrolled{box-shadow:0 10px 30px -18px rgba(22,18,19,.35)}
+.nav .wrap{display:flex;align-items:center;gap:16px;height:72px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand img{width:40px;height:auto;flex:none}
+.brand b{font-family:var(--disp);font-size:17px;letter-spacing:.01em;white-space:nowrap}
+.brand b i{font-style:normal;color:var(--red)}
+.nav-links{display:none;margin-left:auto;gap:28px}
+.nav-links a{font-family:var(--mono);font-size:12.5px;text-transform:uppercase;letter-spacing:.1em;position:relative;padding:6px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-call{margin-left:auto;display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-family:var(--mono);font-weight:700;font-size:13px;padding:11px 18px;letter-spacing:.04em;transition:background .25s,transform .25s}
+.nav-call:hover{background:var(--red-dk);transform:translateY(-1px)}
+.nav-call:active{transform:translateY(0) scale(.98)}
+.nav-call svg{width:15px;height:15px}
+@media (min-width:960px){.nav-links{display:flex}.nav-call{margin-left:0}}
+.burger{display:grid;place-items:center;width:44px;height:44px;background:none;border:1.5px solid var(--rule-strong);cursor:pointer;color:var(--ink)}
+.burger svg{width:20px;height:20px}
+.burger .x{display:none}
+.burger.open .bars{display:none}.burger.open .x{display:block}
+@media (min-width:960px){.burger{display:none}}
+.mmenu{display:none;position:fixed;inset:72px 0 auto 0;z-index:79;background:var(--paper);border-bottom:2px solid var(--rule-strong);padding:14px 24px 26px}
+.mmenu.open{display:block}
+.mmenu a{display:block;font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;font-size:14px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.mmenu .m-call{display:flex;align-items:center;justify-content:center;gap:9px;background:var(--red);color:#fff;font-weight:700;border:0;margin-top:18px;padding:16px}
+.mmenu .m-call svg{width:16px;height:16px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;border-bottom:1.5px solid var(--rule-strong);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr;gap:44px;padding-top:52px;padding-bottom:60px;position:relative}
+@media (min-width:960px){.hero .wrap{grid-template-columns:7fr 5fr;gap:56px;padding-top:72px;padding-bottom:84px;align-items:center}}
+.crop{position:absolute;width:22px;height:22px;border:0 solid var(--ink);opacity:.65;pointer-events:none;z-index:5}
+.crop.tl{top:18px;left:24px;border-left-width:1.5px;border-top-width:1.5px}
+.crop.tr{top:18px;right:24px;border-right-width:1.5px;border-top-width:1.5px}
+.crop.bl{bottom:18px;left:24px;border-left-width:1.5px;border-bottom-width:1.5px}
+.crop.br{bottom:18px;right:24px;border-right-width:1.5px;border-bottom-width:1.5px}
+.job-tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-70);border:1px solid var(--rule-strong);padding:7px 12px;margin-bottom:26px}
+.job-tag i{width:8px;height:8px;background:var(--red);border-radius:50%;flex:none;animation:blink 2.2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.job-tag i{animation:none}}
+.hero h1{font-family:var(--disp);font-size:clamp(44px,7.2vw,96px);line-height:.96;letter-spacing:-.01em;text-transform:uppercase}
+.hero h1 .ln{display:block}
+.hero h1 .red{color:var(--red)}
+.hero h1 .outline{color:transparent;-webkit-text-stroke:2px var(--ink)}
+.hero-sub{margin-top:26px;max-width:52ch;font-size:17.5px;color:var(--ink-70)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:.04em;padding:17px 26px;border:1.5px solid var(--ink);transition:transform .25s var(--ease),background .25s,color .25s,box-shadow .25s;min-height:54px;text-transform:uppercase}
+.btn svg{width:17px;height:17px;flex:none}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.btn:active{transform:none;box-shadow:none}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-red{background:var(--red);border-color:var(--red);color:#fff}
+.btn-red:hover{box-shadow:4px 4px 0 var(--ink)}
+.btn-paper{background:transparent;color:var(--ink)}
+.btn-block{width:100%}
+/* hero press panel */
+.press{position:relative}
+.press-frame{position:relative;border:1.5px solid var(--rule-strong);background:var(--ink);aspect-ratio:4/4.6;overflow:hidden}
+@media (min-width:960px){.press-frame{aspect-ratio:4/4.9}}
+.press-frame .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.press-frame .slide.active{opacity:1}
+.press-frame img{width:100%;height:100%;object-fit:cover}
+.press-num{position:absolute;top:10px;left:12px;z-index:3;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:#fff;background:rgba(22,18,19,.55);padding:4px 8px}
+.qc{position:absolute;right:-8px;bottom:26px;z-index:4;width:min(300px,86%);background:var(--paper);border:1.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink);padding:14px 16px;transform:rotate(-2deg)}
+.qc-top{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px dashed var(--rule-strong);padding-bottom:8px;margin-bottom:9px}
+.qc-top b{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.stars{display:flex;gap:2px;color:var(--red)}
+.stars svg{width:13px;height:13px}
+.qc-txt{transition:opacity .4s ease}
+.qc-txt.fading{opacity:0}
+.qc-quote{display:block;font-size:13.5px;line-height:1.5}
+.qc-who{display:block;font-family:var(--mono);font-size:11px;color:var(--ink-70);margin-top:6px}
+
+/* ---------- marquee ---------- */
+.marquee{background:var(--red);color:#fff;border-bottom:1.5px solid var(--rule-strong);overflow:hidden;padding:13px 0}
+.marquee-track{display:flex;width:max-content;animation:mq 26s linear infinite}
+.marquee span{font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;padding-right:18px}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
+/* ---------- section shells ---------- */
+.sec{padding:92px 0;border-bottom:1.5px solid var(--rule-strong)}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:52px}
+.sec-head h2{font-family:var(--disp);font-size:clamp(30px,4.6vw,54px);text-transform:uppercase;letter-spacing:-.01em;line-height:1.02}
+.sec-head .idx{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-70)}
+.sec-head .idx b{color:var(--red)}
+
+/* ---------- services: spec sheet ---------- */
+.spec{border-top:1.5px solid var(--rule-strong)}
+.spec-row{display:grid;grid-template-columns:1fr;gap:8px;padding:26px 0;border-bottom:1px solid var(--rule);position:relative;transition:background .3s}
+@media (min-width:820px){.spec-row{grid-template-columns:92px 1fr 100px 1.1fr;gap:26px;align-items:center;padding:24px 8px}}
+.spec-row:hover{background:rgba(216,22,28,.045)}
+.spec-num{font-family:var(--mono);font-size:13px;color:var(--ink-70)}
+.spec-row h3{font-family:var(--disp);font-size:clamp(19px,2.4vw,27px);text-transform:uppercase;line-height:1.1}
+.spec-thumb{display:none}
+@media (min-width:820px){.spec-thumb{display:block;width:100px;height:72px;object-fit:cover;border:1px solid var(--rule-strong);filter:saturate(.9)}}
+.spec-row p{color:var(--ink-70);font-size:15.5px}
+
+/* ---------- work ---------- */
+#work{background:var(--paper-2)}
+.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media (min-width:820px){.work-grid{grid-template-columns:2fr 1.2fr 1.2fr;grid-auto-rows:250px}}
+.shot{position:relative;overflow:hidden;border:1.5px solid var(--rule-strong);background:#fff}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.shot:hover img{transform:scale(1.045)}
+.shot figcaption{position:absolute;left:0;bottom:0;background:var(--paper);border-top:1.5px solid var(--ink);border-right:1.5px solid var(--ink);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px}
+@media (min-width:820px){
+  .shot:nth-child(1){grid-row:span 2}
+  .shot:nth-child(4){grid-column:2/4}
+  .shot:nth-child(6){grid-column:2/4}
+}
+@media (max-width:819px){.shot{aspect-ratio:1/1.15}}
+.work-note{margin-top:26px;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;color:var(--ink-70);text-transform:uppercase}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1fr;gap:48px}
+@media (min-width:960px){.about-grid{grid-template-columns:5fr 6fr;gap:70px;align-items:center}}
+.about-photo{position:relative;transform:rotate(-1.2deg)}
+.about-photo img{border:1.5px solid var(--rule-strong);width:100%}
+.tape{position:absolute;width:110px;height:30px;background:rgba(216,22,28,.85);top:-14px;left:34px;transform:rotate(-4deg);z-index:2}
+.tape.b{top:auto;bottom:-14px;left:auto;right:34px;transform:rotate(3deg)}
+.about-copy h2{font-family:var(--disp);font-size:clamp(28px,4vw,46px);text-transform:uppercase;line-height:1.05;margin-bottom:20px}
+.about-copy h2 i{font-style:normal;color:var(--red)}
+.about-copy p{color:var(--ink-70);margin-bottom:16px}
+.steps{margin-top:28px;border-top:1.5px solid var(--rule-strong)}
+.step{display:grid;grid-template-columns:64px 130px 1fr;gap:14px;align-items:baseline;padding:14px 4px;border-bottom:1px dashed var(--rule-strong)}
+.step .n{font-family:var(--mono);font-size:12px;color:var(--red);font-weight:700}
+.step b{font-family:var(--disp);font-size:15px;text-transform:uppercase}
+.step span{color:var(--ink-70);font-size:14.5px}
+@media (max-width:560px){.step{grid-template-columns:44px 1fr}.step span{grid-column:1/3}}
+
+/* ---------- reviews ---------- */
+.rev-grid{display:grid;grid-template-columns:1fr;gap:26px}
+@media (min-width:720px){.rev-grid{grid-template-columns:1fr 1fr;gap:30px}}
+.rev{background:#fff;border:1.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink);padding:26px;position:relative;transition:transform .3s var(--ease)}
+.rev:hover{transform:translateY(-4px) rotate(0deg)!important}
+@media (min-width:720px){
+  .rev:nth-child(1){transform:rotate(-.8deg)}
+  .rev:nth-child(2){transform:rotate(.7deg);margin-top:26px}
+  .rev:nth-child(3){transform:rotate(.6deg)}
+  .rev:nth-child(4){transform:rotate(-.7deg);margin-top:-26px}
+}
+.rev .stars svg{width:15px;height:15px}
+.rev p{margin:12px 0 16px;font-size:15.5px}
+.rev-who{display:flex;align-items:center;gap:11px;border-top:1px dashed var(--rule-strong);padding-top:13px}
+.rev-who .ini{width:38px;height:38px;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:var(--mono);font-size:12px;font-weight:700;flex:none}
+.rev-who b{display:block;font-size:14.5px;line-height:1.2}
+.rev-who span{font-family:var(--mono);font-size:11px;color:var(--ink-70)}
+.rev-actions{margin-top:44px;display:flex;flex-wrap:wrap;gap:14px}
+
+/* ---------- stamp band ---------- */
+.band{background:var(--red);color:#fff;border-bottom:1.5px solid var(--rule-strong);padding:64px 0}
+.band .wrap{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.band h2{font-family:var(--disp);font-size:clamp(26px,3.6vw,44px);text-transform:uppercase;line-height:1.05}
+.band p{margin-top:8px;color:rgba(255,255,255,.85)}
+.band .btn{border-color:#fff;background:#fff;color:var(--ink)}
+.band .btn:hover{box-shadow:4px 4px 0 rgba(22,18,19,.9)}
+
+/* ---------- contact ---------- */
+#contact{background:var(--ink);color:var(--paper);border-bottom:0}
+#contact .sec-head h2{color:var(--paper)}
+#contact .sec-head .idx{color:rgba(245,242,236,.6)}
+#contact .sec-head .idx b{color:#FF6E67}
+.con-grid{display:grid;grid-template-columns:1fr;gap:48px}
+@media (min-width:960px){.con-grid{grid-template-columns:6fr 5fr;gap:70px}}
+.con-rows{border-top:1px solid rgba(245,242,236,.25)}
+.con-rows li{list-style:none;display:grid;grid-template-columns:130px 1fr;gap:16px;padding:16px 2px;border-bottom:1px solid rgba(245,242,236,.18);align-items:baseline}
+.con-rows b{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,242,236,.6)}
+.con-rows a,.con-rows span.v{font-size:17px}
+.con-rows a:hover{color:#FF6E67}
+.socials{display:flex;gap:12px;margin-top:26px}
+.socials a{width:44px;height:44px;border:1px solid rgba(245,242,236,.3);display:grid;place-items:center;transition:border-color .25s,color .25s,transform .25s}
+.socials a:hover{border-color:var(--red);color:#FF6E67;transform:translateY(-2px)}
+.socials svg{width:18px;height:18px}
+.ticket{background:var(--paper);color:var(--ink);border:1.5px solid var(--ink);box-shadow:6px 6px 0 rgba(216,22,28,.9);padding:32px 28px;position:relative}
+.ticket::before{content:"";position:absolute;left:0;right:0;top:58px;border-top:1px dashed var(--rule-strong)}
+.ticket h3{font-family:var(--disp);font-size:22px;text-transform:uppercase;margin-bottom:34px}
+.ticket p{color:var(--ink-70);font-size:14.5px;margin-bottom:18px}
+.ticket .btn + .btn{margin-top:12px}
+.ticket small{display:block;margin-top:16px;font-family:var(--mono);font-size:11px;color:var(--ink-70);letter-spacing:.04em}
+.map-frame{margin-top:56px;border:1.5px solid rgba(245,242,236,.35);line-height:0}
+.map-frame iframe{width:100%;height:380px;border:0;filter:grayscale(.4) contrast(1.02)}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:rgba(245,242,236,.6);padding:34px 0 40px;border-top:1px solid rgba(245,242,236,.2)}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;letter-spacing:.05em}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap}
+.foot a:hover{color:#fff}
+</style>
 </head>
 <body>
 
-<!-- ========== OPENING ANIMATION ========== -->
-<div id="intro" aria-hidden="true">
-  <div class="intro__mark">
-    <img class="intro__logo" src="img/logo.png" alt="Pulukamu XC Print Services" width="1400" height="735">
+<div class="ticker" aria-hidden="true">
+  <div class="wrap">
+    <span>Pulukamu XC Print Services · Christchurch, NZ</span>
+    <span>Screen print · Embroidery · Drinkware · Small runs welcome</span>
   </div>
-  <div class="intro__bar"></div>
 </div>
 
-<!-- ========== NAV ========== -->
-<header class="nav">
-  <div class="nav__inner">
-    <a class="brand" href="index.html">
-      <span class="brand__mark"><img src="img/logo-mark.png" alt="" width="400" height="370"></span>
-      <span class="brand__txt">
-        <span class="brand__name">Pulukamu XC Print</span>
-        <span class="brand__sub">Christchurch</span>
-      </span>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Pulukamu XC Print Services, back to top">
+      <img src="img/logo-mark.png" alt="" width="400" height="370">
+      <b>PULUKAMU <i>XC</i></b>
     </a>
-    <span class="nav__spacer"></span>
-    <nav class="nav__links" aria-label="Main">
-      <a href="#services">What we print</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#work">Off the press</a>
       <a href="#about">About</a>
-      <a href="#work">Our work</a>
       <a href="#reviews">Reviews</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="nav__call" href="tel:+6421146351" aria-label="Call Pulukamu XC Print Services on 021 114 6351">
+    <a class="nav-call" href="tel:+6421146351">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-      <span>021 114 6351</span>
+      021 114 6351
     </a>
-    <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu">
+      <svg class="bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
   </div>
 </header>
 
-<div class="mobile-menu" id="mobile-menu">
-  <a class="mm-link" href="#services">What we print</a>
-  <a class="mm-link" href="#about">About</a>
-  <a class="mm-link" href="#work">Our work</a>
-  <a class="mm-link" href="#reviews">Reviews</a>
-  <a class="mm-link" href="#contact">Contact</a>
-  <a class="btn btn--accent btn--block" href="tel:+6421146351">
+<nav class="mmenu" id="mmenu" aria-label="Mobile">
+  <a href="#services">Services</a>
+  <a href="#work">Off the press</a>
+  <a href="#about">About</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Contact</a>
+  <a class="m-call" href="tel:+6421146351">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
     Call 021 114 6351
   </a>
-</div>
+</nav>
 
-<main>
+<main id="top">
 
-<!-- ========== HERO ========== -->
-<section class="hero" id="top">
-  <div class="hero__slides" aria-hidden="true">
-    <div class="hero__slide is-active">
-      <img src="https://images.unsplash.com/photo-1614494718779-0ba0e88b9859?auto=format&amp;fit=crop&amp;w=1800&amp;h=1100&amp;q=72"
-           alt="A screen printing carousel press set up with a yellow screen in a print workshop"
-           width="1800" height="1100" fetchpriority="high" decoding="async">
-    </div>
-    <div class="hero__slide">
-      <img src="https://images.unsplash.com/photo-1614494731690-53925976ea29?auto=format&amp;fit=crop&amp;w=1800&amp;h=1100&amp;q=72"
-           alt="Screen printing press with a magenta screen raised above black garments"
-           width="1800" height="1100" loading="lazy" decoding="async">
-    </div>
-    <div class="hero__slide">
-      <img src="https://images.unsplash.com/photo-1634713157685-676e35324215?auto=format&amp;fit=crop&amp;w=1800&amp;h=1100&amp;q=72"
-           alt="A run of black t-shirts laid out on the print line being screen printed"
-           width="1800" height="1100" loading="lazy" decoding="async">
-    </div>
-  </div>
-  <div class="hero__scrim" aria-hidden="true"></div>
-
-  <div class="hero__inner">
-    <div class="wrap">
-      <span class="hero__eyebrow reveal hero-reveal"><i></i> Christchurch &middot; Custom printing &amp; apparel</span>
-      <h1 class="reveal hero-reveal" data-d="1">Custom tees, hoodies and uniforms, <em>printed in Christchurch</em>.</h1>
-      <p class="hero__sub reveal hero-reveal" data-d="2">Screen printing, embroidery and event merch for clubs, churches, schools, work crews and small businesses. Send us your artwork and your numbers, get a straight price back.</p>
-      <div class="hero__cta reveal hero-reveal" data-d="3">
-        <a class="btn btn--accent btn--lg" href="#contact">
+<!-- HERO -->
+<section class="hero">
+  <span class="crop tl" aria-hidden="true"></span><span class="crop tr" aria-hidden="true"></span>
+  <span class="crop bl" aria-hidden="true"></span><span class="crop br" aria-hidden="true"></span>
+  <div class="wrap">
+    <div>
+      <span class="job-tag rv on"><i></i> Job ticket open · Christchurch</span>
+      <h1>
+        <span class="ln rv on">Put your</span>
+        <span class="ln red rv on" data-d="1">name on</span>
+        <span class="ln rv on" data-d="2">any<span class="outline">thing.</span></span>
+      </h1>
+      <p class="hero-sub rv on" data-d="2">Screen printing, embroidery and drinkware for Christchurch clubs, churches, schools, work crews and small businesses. Send Tevita your artwork and your numbers, get a straight price and a ready-by date back.</p>
+      <div class="hero-ctas rv on" data-d="3">
+        <a class="btn btn-red" href="#contact">
           Get a quote
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a class="btn btn--glass btn--lg" href="tel:+6421146351">
+        <a class="btn btn-ink" href="tel:+6421146351">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-          Call 021 114 6351
-        </a>
-      </div>
-
-      <div class="rating reveal hero-reveal" data-d="4" data-review-rotator>
-        <span class="rating__stars" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-        </span>
-        <span class="rating__txt">
-          <span class="rating__quote">&ldquo;Got 40 hoodies done for our youth group and they were back to us inside the week.&rdquo;</span>
-          <span class="rating__who">Sione F. &middot; example review</span>
-        </span>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<!-- ========== SERVICES ========== -->
-<section class="section section--bone" id="services">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <h2 class="h-sec">Gear with your name on it, done properly.</h2>
-      <p class="lede">Whether it's ten shirts for a family reunion or a full kit for the club season, it's the same job: clean artwork, the right garment, and a date you can plan around.</p>
-    </div>
-
-    <div class="cards">
-
-      <article class="card reveal">
-        <div class="card__media">
-          <img src="https://images.unsplash.com/photo-1586939735437-d61392bd039b?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=72"
-               alt="Printer pulling a squeegee across a screen loaded with bright ink" width="900" height="600" loading="lazy" decoding="async">
-          <span class="card__ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l4.5 2.6-2.2 4-2.3-1.3V21H8.0V8.3L5.7 9.6 3.5 5.6z"/></svg>
-          </span>
-        </div>
-        <div class="card__body">
-          <h3>T-shirt &amp; hoodie printing</h3>
-          <p>Screen printing on tees, hoodies, crews and singlets. One colour or full colour, front, back and sleeves.</p>
-        </div>
-      </article>
-
-      <article class="card reveal" data-d="1">
-        <div class="card__media">
-          <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=72"
-               alt="Folded t-shirts in a range of colours ready for a uniform order" width="900" height="600" loading="lazy" decoding="async">
-          <span class="card__ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg>
-          </span>
-        </div>
-        <div class="card__body">
-          <h3>Team, club &amp; workwear</h3>
-          <p>Playing kit, club hoodies, hi-vis and work polos, with names and numbers on the back if you need them.</p>
-        </div>
-      </article>
-
-      <article class="card reveal" data-d="2">
-        <div class="card__media">
-          <img src="https://images.unsplash.com/photo-1557462987-dd1c191266f0?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=72"
-               alt="Multi-head embroidery machine stitching a logo onto red garments" width="900" height="600" loading="lazy" decoding="async">
-          <span class="card__ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18" opacity=".45"/><path d="M8.5 8.5c2.5 2 4.5 4 7 7"/></svg>
-          </span>
-        </div>
-        <div class="card__body">
-          <h3>Embroidery</h3>
-          <p>Stitched logos on caps, polos, jackets and bags, the finish that lasts on gear people wear every day.</p>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="card__media">
-          <img src="https://images.unsplash.com/photo-1663433541063-ddab084d1126?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=72"
-               alt="Printer working a manual carousel press on a run of custom shirts" width="900" height="600" loading="lazy" decoding="async">
-          <span class="card__ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 20 4l-3 16-5.5-4.5z"/><path d="M11.5 15.5 9 21l-1-5.5"/></svg>
-          </span>
-        </div>
-        <div class="card__body">
-          <h3>Event, church &amp; reunion merch</h3>
-          <p>Shirts for the tournament, the fundraiser, the church camp or the family reunion. Small runs welcome.</p>
-        </div>
-      </article>
-
-      <article class="card reveal" data-d="1">
-        <div class="card__media">
-          <img src="https://images.unsplash.com/photo-1456456496250-d5e7c0a9b44d?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=72"
-               alt="Screen being prepared and coated by hand in a print workshop" width="900" height="600" loading="lazy" decoding="async">
-          <span class="card__ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
-          </span>
-        </div>
-        <div class="card__body">
-          <h3>Artwork set-up</h3>
-          <p>Rough sketch, a photo of an old shirt or a logo off your phone, we'll redraw it so it prints clean.</p>
-        </div>
-      </article>
-
-      <article class="card reveal" data-d="2">
-        <div class="card__media">
-          <img src="https://images.unsplash.com/photo-1663433453056-8afb0da56588?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=72"
-               alt="Ink being spread across a screen on the press for a production run" width="900" height="600" loading="lazy" decoding="async">
-          <span class="card__ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v10l-9 5-9-5V7z"/><path d="m3 7 9 5 9-5M12 12v10"/></svg>
-          </span>
-        </div>
-        <div class="card__body">
-          <h3>Bulk &amp; repeat runs</h3>
-          <p>We keep your screens and files on record, so next season's order picks up exactly where the last one left off.</p>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ========== ABOUT ========== -->
-<section class="section section--paper" id="about">
-  <div class="wrap">
-    <div class="split">
-      <div class="figure reveal">
-        <img src="img/bottle-run-box.webp"
-             alt="A box of freshly printed measuring bottles ready to go out the door" width="765" height="1020" loading="lazy" decoding="async">
-        <span class="figure__tag">Fresh off the press</span>
-      </div>
-      <div class="reveal" data-d="1">
-        <h2 class="h-sec">A Christchurch print shop that talks straight about numbers and dates.</h2>
-        <p>Pulukamu XC Print Services is a custom printing and apparel outfit based in Christchurch. Most of what comes through the door is people who need gear for a group: a team, a church, a work crew, a family heading to a reunion, and who want to know what it costs and when they'll have it.</p>
-        <p>So that's how we work. Tell us what you want printed and roughly how many, and you'll get the set-up cost, the price per garment and a ready-by date back. Nothing goes on the press until you've seen the artwork on the garment and said yes.</p>
-        <ul class="checklist">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><path d="M22 4 12 14.1l-3-3"/></svg>
-            <span>Locally owned and run, right here in Christchurch</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><path d="M22 4 12 14.1l-3-3"/></svg>
-            <span>One clear quote: set-up, per-garment price and turnaround</span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><path d="M22 4 12 14.1l-3-3"/></svg>
-            <span>Artwork proofed and approved by you before the run</span>
-          </li>
-        </ul>
-        <a class="btn btn--ink" href="#contact">
-          Talk to us about your job
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          021 114 6351
         </a>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ========== WORK / GALLERY ========== -->
-<section class="section section--bone" id="work">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <h2 class="h-sec">Not just garments. Bottles, cups and drinkware too.</h2>
-      <p class="lede">Real jobs off our press: drink bottles, event cups and product runs, printed one colour or full wrap. If it holds still long enough, we can probably print on it.</p>
-    </div>
-    <div class="masonry reveal" data-d="1">
-      <img src="img/southstar-bottle.webp"
-           alt="Blue drink bottle wrap-printed with the Southstar logo" width="573" height="1020" loading="lazy" decoding="async">
-      <img src="img/kombi-keg-cup.webp"
-           alt="Reusable event cup printed with the Kombi Keg van artwork" width="765" height="1020" loading="lazy" decoding="async">
-      <img src="img/goldenbay-camelbak.webp"
-           alt="Camelbak cycling bottle printed for Golden Bay Legendary Cycling" width="765" height="1020" loading="lazy" decoding="async">
-      <img src="img/nalgene-floral.webp"
-           alt="Red Nalgene bottle with a light blue floral band printed around it" width="765" height="1020" loading="lazy" decoding="async">
-      <img src="img/xclean-bottle.webp"
-           alt="X-Clean Xtreme Clean bottle printed in three colours" width="765" height="1020" loading="lazy" decoding="async">
-    </div>
-  </div>
-</section>
-
-<!-- ========== CREW ========== -->
-<section class="section section--paper" id="crew">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <h2 class="h-sec">You deal with the person doing the printing.</h2>
-      <p class="lede">No call centre, no ticket number. Ring the shop and you're talking to someone who knows where your job is sitting.</p>
-      <span class="badge-note">Tevita is your real contact &middot; other roles shown as examples</span>
-    </div>
-    <div class="crew">
-      <article class="crew__card reveal">
-        <div class="crew__avatar" aria-hidden="true">T</div>
-        <h3>Tevita</h3>
-        <div class="crew__role">Owner / Printer</div>
-        <p>Your first point of contact. Quotes the job, checks the artwork and runs the press.</p>
-      </article>
-      <article class="crew__card reveal" data-d="1">
-        <div class="crew__avatar" aria-hidden="true">PR</div>
-        <h3>Press Operator</h3>
-        <div class="crew__role">Print room</div>
-        <p>Burns the screens, mixes the ink and keeps the run consistent from the first shirt to the last.</p>
-      </article>
-      <article class="crew__card reveal" data-d="2">
-        <div class="crew__avatar" aria-hidden="true">AF</div>
-        <h3>Artwork &amp; Finishing</h3>
-        <div class="crew__role">Set-up</div>
-        <p>Redraws rough logos, sizes the print for each garment, then counts, folds and boxes the order.</p>
-      </article>
+    <div class="press rv on" data-d="1">
+      <div class="press-frame">
+        <span class="press-num">RUN 01 / PRESS CAM</span>
+        <div class="slide active"><img src="https://images.unsplash.com/photo-1614494718779-0ba0e88b9859?auto=format&amp;fit=crop&amp;w=1000&amp;h=1250&amp;q=72" alt="Screen printing carousel press with a yellow screen mid-run" width="1000" height="1250" fetchpriority="high" decoding="async"></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1614494731690-53925976ea29?auto=format&amp;fit=crop&amp;w=1000&amp;h=1250&amp;q=72" alt="Magenta screen raised over black garments on the press" width="1000" height="1250" loading="lazy" decoding="async"></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1634713157685-676e35324215?auto=format&amp;fit=crop&amp;w=1000&amp;h=1250&amp;q=72" alt="A run of black t-shirts laid out on the print line" width="1000" height="1250" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="qc" data-review-rotator>
+        <div class="qc-top">
+          <b>QC · Passed</b>
+          <span class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+          </span>
+        </div>
+        <span class="qc-txt">
+          <span class="qc-quote">"Got 40 hoodies done for our youth group and they were back inside the week."</span>
+          <span class="qc-who">Sione F. · example review</span>
+        </span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ========== REVIEWS ========== -->
-<section class="section section--bone" id="reviews">
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Tees · Hoodies · Club kit · Workwear · Caps · Bottles · Cups · Event merch · Embroidery · Artwork redraws ·&nbsp;</span>
+    <span>Tees · Hoodies · Club kit · Workwear · Caps · Bottles · Cups · Event merch · Embroidery · Artwork redraws ·&nbsp;</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="sec" id="services">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <h2 class="h-sec">What customers say.</h2>
-      <p class="lede">The cards below are examples of the kind of feedback a print shop gets, written for this demo. Once your Google Business Profile is connected, your real Google reviews show here automatically.</p>
-      <span class="badge-note">Example reviews &middot; real Google reviews plug in here</span>
+    <div class="sec-head rv">
+      <h2>What we print</h2>
+      <span class="idx"><b>01</b> / Spec sheet</span>
     </div>
+    <div class="spec">
+      <div class="spec-row rv">
+        <span class="spec-num">01</span>
+        <h3>T-shirts &amp; hoodies</h3>
+        <img class="spec-thumb" src="https://images.unsplash.com/photo-1586939735437-d61392bd039b?auto=format&amp;fit=crop&amp;w=300&amp;h=220&amp;q=70" alt="" loading="lazy" width="300" height="220">
+        <p>Screen printing on tees, hoodies, crews and singlets. One colour or full colour, front, back and sleeves.</p>
+      </div>
+      <div class="spec-row rv">
+        <span class="spec-num">02</span>
+        <h3>Team &amp; workwear</h3>
+        <img class="spec-thumb" src="https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&amp;fit=crop&amp;w=300&amp;h=220&amp;q=70" alt="" loading="lazy" width="300" height="220">
+        <p>Playing kit, club hoodies, hi-vis and work polos, with names and numbers on the back if you need them.</p>
+      </div>
+      <div class="spec-row rv">
+        <span class="spec-num">03</span>
+        <h3>Embroidery</h3>
+        <img class="spec-thumb" src="https://images.unsplash.com/photo-1557462987-dd1c191266f0?auto=format&amp;fit=crop&amp;w=300&amp;h=220&amp;q=70" alt="" loading="lazy" width="300" height="220">
+        <p>Stitched logos on caps, polos, jackets and bags. The finish that lasts on gear people wear every day.</p>
+      </div>
+      <div class="spec-row rv">
+        <span class="spec-num">04</span>
+        <h3>Bottles &amp; drinkware</h3>
+        <img class="spec-thumb" src="img/southstar-bottle.webp" alt="" loading="lazy" width="300" height="220">
+        <p>Drink bottles, event cups and product runs, printed one colour or full wrap. See them fresh off the press below.</p>
+      </div>
+      <div class="spec-row rv">
+        <span class="spec-num">05</span>
+        <h3>Event &amp; reunion merch</h3>
+        <img class="spec-thumb" src="https://images.unsplash.com/photo-1663433541063-ddab084d1126?auto=format&amp;fit=crop&amp;w=300&amp;h=220&amp;q=70" alt="" loading="lazy" width="300" height="220">
+        <p>Shirts for the tournament, the fundraiser, the church camp or the family reunion. Small runs welcome.</p>
+      </div>
+      <div class="spec-row rv">
+        <span class="spec-num">06</span>
+        <h3>Artwork set-up</h3>
+        <img class="spec-thumb" src="https://images.unsplash.com/photo-1456456496250-d5e7c0a9b44d?auto=format&amp;fit=crop&amp;w=300&amp;h=220&amp;q=70" alt="" loading="lazy" width="300" height="220">
+        <p>Bring a rough sketch, a photo of an old shirt or a logo off your phone. We redraw it so it prints clean.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="reviews">
-      <article class="review reveal">
-        <span class="review__stars" aria-label="5 out of 5 stars">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-        </span>
-        <p>&ldquo;Got 40 hoodies done for our youth group and they were back to us inside the week. Print's still sharp after a whole term of washing.&rdquo;</p>
-        <div class="review__who">
-          <span class="review__ini" aria-hidden="true">SF</span>
-          <span><b>Sione F.</b><span>Hornby &middot; example review</span></span>
+<!-- WORK -->
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Off the press</h2>
+      <span class="idx"><b>02</b> / Real jobs</span>
+    </div>
+    <div class="work-grid">
+      <figure class="shot rv"><img src="img/bottle-run-box.webp" alt="A box of freshly printed measuring bottles ready for pickup" loading="lazy" width="765" height="1020"><figcaption>Production run · boxed</figcaption></figure>
+      <figure class="shot rv" data-d="1"><img src="img/southstar-bottle.webp" alt="Blue drink bottle wrap-printed with the Southstar logo" loading="lazy" width="573" height="1020"><figcaption>Southstar · wrap print</figcaption></figure>
+      <figure class="shot rv" data-d="2"><img src="img/kombi-keg-cup.webp" alt="Reusable event cup printed with Kombi Keg van artwork" loading="lazy" width="765" height="1020"><figcaption>Kombi Keg · event cup</figcaption></figure>
+      <figure class="shot rv" data-d="1"><img src="img/goldenbay-camelbak.webp" alt="Camelbak cycling bottle printed for Golden Bay Legendary Cycling" loading="lazy" width="765" height="1020"><figcaption>Golden Bay · Camelbak</figcaption></figure>
+      <figure class="shot rv" data-d="2"><img src="img/xclean-bottle.webp" alt="X-Clean bottle printed in three colours" loading="lazy" width="765" height="1020"><figcaption>X-Clean · 3 colour</figcaption></figure>
+      <figure class="shot rv" data-d="3"><img src="img/nalgene-floral.webp" alt="Red Nalgene bottle with a light blue floral band print" loading="lazy" width="765" height="1020"><figcaption>Nalgene · floral band</figcaption></figure>
+    </div>
+    <p class="work-note rv">If it holds still long enough, we can probably print on it.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-photo rv">
+        <span class="tape" aria-hidden="true"></span>
+        <img src="img/logo.png" alt="Pulukamu XC Print Services logo" width="1400" height="735" loading="lazy" style="background:#fff;padding:34px 22px">
+        <span class="tape b" aria-hidden="true"></span>
+      </div>
+      <div class="about-copy rv" data-d="1">
+        <h2>A Christchurch shop that talks straight about <i>numbers and dates.</i></h2>
+        <p>Pulukamu XC Print Services is a custom printing and apparel outfit based in Christchurch. Most jobs through the door are for a group: a team, a church, a work crew, a family heading to a reunion. You want to know what it costs and when you get it.</p>
+        <p>So that is the whole system. Tell Tevita what you want printed and roughly how many. You get the set-up cost, the price per garment and a ready-by date. Nothing touches the press until you have signed off the proof.</p>
+        <div class="steps">
+          <div class="step"><span class="n">S1</span><b>Proof</b><span>Your artwork sized on the garment, sent for your sign-off first.</span></div>
+          <div class="step"><span class="n">S2</span><b>Press</b><span>The full run printed in one pass, first shirt to last, same result.</span></div>
+          <div class="step"><span class="n">S3</span><b>Pickup</b><span>Counted, folded and boxed in town, or delivered across Canterbury.</span></div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec" id="reviews">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Run reports</h2>
+      <span class="idx"><b>03</b> / Example reviews · real ones live on Google</span>
+    </div>
+    <div class="rev-grid">
+      <article class="rev rv">
+        <span class="stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+        </span>
+        <p>"Got 40 hoodies done for our youth group and they were back to us inside the week. Print's still sharp after a whole term of washing."</p>
+        <div class="rev-who"><span class="ini">SF</span><span><b>Sione F.</b><span>Hornby · example review</span></span></div>
       </article>
-
-      <article class="review reveal" data-d="1">
-        <span class="review__stars" aria-label="5 out of 5 stars">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+      <article class="rev rv" data-d="1">
+        <span class="stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
         </span>
-        <p>&ldquo;Turned up with a blurry photo of our old club logo and they redrew the whole thing. The polos look better than the originals.&rdquo;</p>
-        <div class="review__who">
-          <span class="review__ini" aria-hidden="true">MR</span>
-          <span><b>Mel R.</b><span>Papanui &middot; example review</span></span>
-        </div>
+        <p>"Turned up with a blurry photo of our old club logo and they redrew the whole thing. The polos look better than the originals."</p>
+        <div class="rev-who"><span class="ini">MR</span><span><b>Mel R.</b><span>Papanui · example review</span></span></div>
       </article>
-
-      <article class="review reveal" data-d="2">
-        <span class="review__stars" aria-label="5 out of 5 stars">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+      <article class="rev rv" data-d="1">
+        <span class="stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
         </span>
-        <p>&ldquo;Only needed a dozen shirts for the family reunion and thought that'd be too small to bother anyone. Fair price and ready when they said.&rdquo;</p>
-        <div class="review__who">
-          <span class="review__ini" aria-hidden="true">AT</span>
-          <span><b>Anaru T.</b><span>Riccarton &middot; example review</span></span>
-        </div>
+        <p>"Only needed a dozen shirts for the family reunion and thought that'd be too small to bother anyone. Fair price and ready when they said."</p>
+        <div class="rev-who"><span class="ini">AT</span><span><b>Anaru T.</b><span>Riccarton · example review</span></span></div>
       </article>
-
-      <article class="review reveal" data-d="3">
-        <span class="review__stars" aria-label="5 out of 5 stars">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+      <article class="rev rv" data-d="2">
+        <span class="stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
         </span>
-        <p>&ldquo;Quoted the set-up and the per-shirt cost before we ordered, so there were no surprises at pick-up. Easy to deal with.&rdquo;</p>
-        <div class="review__who">
-          <span class="review__ini" aria-hidden="true">JP</span>
-          <span><b>Jess P.</b><span>Halswell &middot; example review</span></span>
-        </div>
+        <p>"Quoted the set-up and the per-shirt cost before we ordered, so there were no surprises at pick-up. Easy to deal with."</p>
+        <div class="rev-who"><span class="ini">JP</span><span><b>Jess P.</b><span>Halswell · example review</span></span></div>
       </article>
     </div>
-
-    <div class="reviews__actions reveal">
-      <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Pulukamu%20XC%20Print%20Services%20Christchurch" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg>
-        See all our Google reviews
+    <div class="rev-actions rv">
+      <a class="btn btn-paper" href="https://www.google.com/maps/search/?api=1&amp;query=Pulukamu%20XC%20Print%20Services%20Christchurch" target="_blank" rel="noopener">
+        See all Google reviews
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ========== LEAVE A REVIEW BANNER ========== -->
-<section class="banner">
+<!-- STAMP BAND -->
+<section class="band">
   <div class="wrap">
-    <div class="banner__inner">
-      <div class="reveal">
-        <h2>Happy with your gear? Leave us a review.</h2>
-        <p>Reviews from Christchurch locals are how new teams and groups find us. Takes about a minute.</p>
-      </div>
-      <div class="reveal" data-d="1">
-        <a class="btn btn--accent btn--lg" href="https://www.google.com/maps/search/?api=1&amp;query=Pulukamu%20XC%20Print%20Services%20Christchurch" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
-          Leave a Google review
-        </a>
-      </div>
+    <div class="rv">
+      <h2>Happy with your gear?</h2>
+      <p>A quick Google review is how the next club finds us. Takes a minute.</p>
     </div>
+    <a class="btn rv" data-d="1" href="https://www.google.com/maps/search/?api=1&amp;query=Pulukamu%20XC%20Print%20Services%20Christchurch" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.6 7 .9-5.1 4.8 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.5l7-.9z"/></svg>
+      Leave a review
+    </a>
   </div>
 </section>
 
-<!-- ========== CONTACT ========== -->
-<section class="section section--ink" id="contact">
+<!-- CONTACT -->
+<section class="sec" id="contact">
   <div class="wrap">
-    <div class="contact__grid">
-      <div class="reveal">
-        <h2 class="h-sec">Tell us what you need printed.</h2>
-        <p class="lede">Give us the garment, the artwork and roughly how many, and we'll come back with the set-up cost, the price each and a ready-by date.</p>
-
-        <ul class="info">
-          <li>
-            <span class="info__ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-            </span>
-            <span>
-              <b>Phone</b>
-              <a href="tel:+6421146351">021 114 6351</a>
-            </span>
-          </li>
-          <li>
-            <span class="info__ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-            </span>
-            <span>
-              <b>Email</b>
-              <a href="#" data-gmail data-user="PulukamuXCPrintServices" data-domain="gmail.com"
-                 data-su="Print%20job%20enquiry" data-body="Hi%20Tevita%2C%0A%0AI%27d%20like%20a%20quote%20for%3A%0A%0AGarment%3A%0AQuantity%3A%0APrint%20%28front%2Fback%2Fboth%29%3A%0ANeeded%20by%3A%0A%0AThanks%2C%0A">Email the shop</a>
-            </span>
-          </li>
-          <li>
-            <span class="info__ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </span>
-            <span>
-              <b>Where we are</b>
-              <span class="info__val">Christchurch, Canterbury</span>
-            </span>
-          </li>
-          <li>
-            <span class="info__ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-            </span>
-            <span>
-              <b>Quotes</b>
-              <span class="info__val">Ring or email any time, we'll get back to you</span>
-            </span>
-          </li>
+    <div class="sec-head rv">
+      <h2>Tell us the job</h2>
+      <span class="idx"><b>04</b> / Quote free</span>
+    </div>
+    <div class="con-grid">
+      <div class="rv">
+        <ul class="con-rows">
+          <li><b>Phone</b><a href="tel:+6421146351">021 114 6351</a></li>
+          <li><b>Email</b><a href="#" data-gmail data-user="PulukamuXCPrintServices" data-domain="gmail.com" data-su="Print%20job%20enquiry" data-body="Hi%20Tevita%2C%0A%0AI%27d%20like%20a%20quote%20for%3A%0A%0AGarment%3A%0AQuantity%3A%0APrint%20%28front%2Fback%2Fboth%29%3A%0ANeeded%20by%3A%0A%0AThanks%2C%0A">Email the shop</a></li>
+          <li><b>Where</b><span class="v">Christchurch, Canterbury</span></li>
+          <li><b>Quotes</b><span class="v">Ring or email any time, Tevita gets back to you</span></li>
         </ul>
-
         <div class="socials">
-          <a class="social" href="https://www.facebook.com/search/top?q=Pulukamu%20XC%20Print%20Services" target="_blank" rel="noopener" aria-label="Find Pulukamu XC Print Services on Facebook">
+          <a href="https://www.facebook.com/search/top?q=Pulukamu%20XC%20Print%20Services" target="_blank" rel="noopener" aria-label="Find Pulukamu XC Print Services on Facebook">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
           </a>
-          <a class="social" href="https://www.instagram.com/explore/search/keyword/?q=Pulukamu%20XC%20Print%20Services" target="_blank" rel="noopener" aria-label="Find Pulukamu XC Print Services on Instagram">
+          <a href="https://www.instagram.com/explore/search/keyword/?q=Pulukamu%20XC%20Print%20Services" target="_blank" rel="noopener" aria-label="Find Pulukamu XC Print Services on Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
           </a>
-          <a class="social" href="https://www.tiktok.com/search?q=Pulukamu%20XC%20Print%20Services" target="_blank" rel="noopener" aria-label="Find Pulukamu XC Print Services on TikTok">
+          <a href="https://www.tiktok.com/search?q=Pulukamu%20XC%20Print%20Services" target="_blank" rel="noopener" aria-label="Find Pulukamu XC Print Services on TikTok">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.8a4.9 4.9 0 0 1-1.1-3.3h-3.2v12.3a2.6 2.6 0 1 1-2-2.5V9.1a5.7 5.7 0 1 0 5.2 5.7v-6a8 8 0 0 0 4.5 1.4V7a4.8 4.8 0 0 1-3.4-1.2z"/></svg>
           </a>
         </div>
       </div>
-
-      <div class="contact__card reveal" data-d="1">
-        <h3>Two ways to reach us</h3>
-        <p>Ring for a quick price on a straightforward job, or email through the details and artwork and we'll write it up properly.</p>
-
-        <a class="btn btn--accent btn--lg btn--block" href="tel:+6421146351">
+      <div class="ticket rv" data-d="1">
+        <h3>Two ways in</h3>
+        <p>Ring for a quick price on a straightforward job, or email through the details and artwork and Tevita writes it up properly.</p>
+        <a class="btn btn-red btn-block" href="tel:+6421146351">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
           Call for a quote
         </a>
-
-        <a class="btn btn--ghost btn--lg btn--block" href="#" data-gmail
-           data-user="PulukamuXCPrintServices" data-domain="gmail.com"
-           data-su="Print%20job%20enquiry"
-           data-body="Hi%20Tevita%2C%0A%0AI%27d%20like%20a%20quote%20for%3A%0A%0AGarment%3A%0AQuantity%3A%0APrint%20%28front%2Fback%2Fboth%29%3A%0ANeeded%20by%3A%0A%0AThanks%2C%0A">
+        <a class="btn btn-ink btn-block" href="#" data-gmail data-user="PulukamuXCPrintServices" data-domain="gmail.com" data-su="Print%20job%20enquiry" data-body="Hi%20Tevita%2C%0A%0AI%27d%20like%20a%20quote%20for%3A%0A%0AGarment%3A%0AQuantity%3A%0APrint%20%28front%2Fback%2Fboth%29%3A%0ANeeded%20by%3A%0A%0AThanks%2C%0A">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-          Email us your job
+          Email your job
         </a>
-
-        <p class="contact__note">The email button opens a Gmail message already filled in, just add your artwork and send.</p>
+        <small>The email button opens a Gmail message already filled in. Add your artwork and send.</small>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ========== MAP ========== -->
-<section class="map" aria-label="Our location">
-  <div class="wrap">
-    <div class="map__frame">
-      <iframe
-        title="Map showing Pulukamu XC Print Services in Christchurch"
-        src="https://www.google.com/maps?q=Pulukamu+XC+Print+Services+Christchurch&output=embed"
-        loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    <div class="map-frame rv">
+      <iframe title="Map showing Pulukamu XC Print Services in Christchurch" src="https://www.google.com/maps?q=Pulukamu+XC+Print+Services+Christchurch&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
     </div>
   </div>
 </section>
 
 </main>
 
-<!-- ========== FOOTER ========== -->
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer__top">
-      <div>
-        <a class="brand" href="index.html">
-          <span class="brand__mark"><img src="img/logo-mark.png" alt="" width="400" height="370"></span>
-          <span class="brand__txt">
-            <span class="brand__name">Pulukamu XC Print Services</span>
-            <span class="brand__sub">Christchurch</span>
-          </span>
-        </a>
-        <p class="footer__blurb">Custom t-shirt and hoodie printing, team and club uniforms, embroidery and event merch, printed in Christchurch.</p>
-        <div class="socials">
-          <a class="social" href="https://www.facebook.com/search/top?q=Pulukamu%20XC%20Print%20Services" target="_blank" rel="noopener" aria-label="Find Pulukamu XC Print Services on Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
-          </a>
-          <a class="social" href="https://www.instagram.com/explore/search/keyword/?q=Pulukamu%20XC%20Print%20Services" target="_blank" rel="noopener" aria-label="Find Pulukamu XC Print Services on Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
-          </a>
-          <a class="social" href="https://www.tiktok.com/search?q=Pulukamu%20XC%20Print%20Services" target="_blank" rel="noopener" aria-label="Find Pulukamu XC Print Services on TikTok">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.8a4.9 4.9 0 0 1-1.1-3.3h-3.2v12.3a2.6 2.6 0 1 1-2-2.5V9.1a5.7 5.7 0 1 0 5.2 5.7v-6a8 8 0 0 0 4.5 1.4V7a4.8 4.8 0 0 1-3.4-1.2z"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div>
-        <div class="footer__ttl">Site</div>
-        <div class="footer__links">
-          <a href="#services">What we print</a>
-          <a href="#about">About us</a>
-          <a href="#work">Our work</a>
-          <a href="#reviews">Reviews</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </div>
-
-      <div>
-        <div class="footer__ttl">Get in touch</div>
-        <div class="footer__links">
-          <a href="tel:+6421146351">021 114 6351</a>
-          <a href="#" data-gmail data-user="PulukamuXCPrintServices" data-domain="gmail.com" data-su="Print%20job%20enquiry" data-body="Hi%20Tevita%2C%0A%0AI%27d%20like%20a%20quote%20for%3A%0A%0A">Email the shop</a>
-          <a href="https://www.google.com/maps/search/?api=1&amp;query=Pulukamu%20XC%20Print%20Services%20Christchurch" target="_blank" rel="noopener">Leave a Google review</a>
-          <a href="terms.html">Terms &amp; Conditions</a>
-          <a href="privacy.html">Privacy Policy</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer__bottom">
-      <span>&copy; <span data-year>2026</span> Pulukamu XC Print Services &middot; Christchurch, New Zealand</span>
-      <span><a href="terms.html">Terms</a> &middot; <a href="privacy.html">Privacy</a></span>
+<footer>
+  <div class="wrap foot">
+    <span>&copy; <span data-year>2026</span> Pulukamu XC Print Services · Christchurch NZ</span>
+    <div class="foot-links">
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Pulukamu%20XC%20Print%20Services%20Christchurch" target="_blank" rel="noopener">Google reviews</a>
     </div>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+(function(){
+  'use strict';
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var nav=document.getElementById('nav');
+  function onScroll(){nav.classList.toggle('scrolled',window.scrollY>10);}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var burger=document.querySelector('.burger'),mm=document.getElementById('mmenu');
+  burger.addEventListener('click',function(){
+    var open=mm.classList.toggle('open');
+    burger.classList.toggle('open',open);
+    burger.setAttribute('aria-expanded',open?'true':'false');
+  });
+  mm.addEventListener('click',function(e){
+    if(e.target.closest('a')){mm.classList.remove('open');burger.classList.remove('open');burger.setAttribute('aria-expanded','false');}
+  });
+
+  var slides=document.querySelectorAll('.press-frame .slide');
+  if(slides.length>1&&!reduced){
+    var i=0;
+    setInterval(function(){
+      slides[i].classList.remove('active');
+      i=(i+1)%slides.length;
+      slides[i].classList.add('active');
+    },5000);
+  }
+
+  var rot=document.querySelector('[data-review-rotator]');
+  if(rot&&!reduced){
+    var revs=[
+      {q:'"Got 40 hoodies done for our youth group and they were back inside the week."',w:'Sione F. · example review'},
+      {q:'"Turned up with a blurry photo of our old logo and they redrew the whole thing."',w:'Mel R. · example review'},
+      {q:'"A dozen shirts for the reunion. Fair price and ready when they said."',w:'Anaru T. · example review'},
+      {q:'"Set-up and per-shirt cost quoted up front, no surprises at pick-up."',w:'Jess P. · example review'}
+    ];
+    var txt=rot.querySelector('.qc-txt'),q=rot.querySelector('.qc-quote'),w=rot.querySelector('.qc-who'),ri=0;
+    setInterval(function(){
+      txt.classList.add('fading');
+      setTimeout(function(){
+        ri=(ri+1)%revs.length;
+        q.textContent=revs[ri].q;
+        w.textContent=revs[ri].w;
+        txt.classList.remove('fading');
+      },400);
+    },6000);
+  }
+
+  var els=document.querySelectorAll('.rv:not(.on)');
+  if('IntersectionObserver' in window&&!reduced){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});
+    },{threshold:.12});
+    els.forEach(function(el){io.observe(el);});
+  }else{
+    els.forEach(function(el){el.classList.add('on');});
+  }
+
+  document.querySelectorAll('a[data-gmail]').forEach(function(a){
+    var to=a.getAttribute('data-user')+'@'+a.getAttribute('data-domain');
+    a.href='https://mail.google.com/mail/?view=cm&fs=1&to='+encodeURIComponent(to)+'&su='+(a.getAttribute('data-su')||'')+'&body='+(a.getAttribute('data-body')||'');
+    a.target='_blank';a.rel='noopener';
+  });
+
+  document.querySelectorAll('[data-year]').forEach(function(el){el.textContent=new Date().getFullYear();});
+})();
+</script>
 </body>
 </html>
