@@ -98,6 +98,32 @@
     [80, 400, 900, 1600, 2600].forEach(function (t) { window.setTimeout(checkReveals, t); });
   }
 
+  /* ---------- Hero review rotation ---------- */
+  var rotator = document.querySelector('[data-review-rotator]');
+  if (rotator) {
+    var heroReviews = [
+      { q: '“Got 40 hoodies done for our youth group and they were back to us inside the week.”', w: 'Sione F. · example review' },
+      { q: '“Turned up with a blurry photo of our old club logo and they redrew the whole thing.”', w: 'Mel R. · example review' },
+      { q: '“Only needed a dozen shirts for the family reunion. Fair price and ready when they said.”', w: 'Anaru T. · example review' },
+      { q: '“Quoted the set-up and the per-shirt cost before we ordered, so no surprises at pick-up.”', w: 'Jess P. · example review' }
+    ];
+    var txt = rotator.querySelector('.rating__txt');
+    var quote = rotator.querySelector('.rating__quote');
+    var who = rotator.querySelector('.rating__who');
+    if (txt && quote && who && !reduced) {
+      var r = 0;
+      window.setInterval(function () {
+        txt.classList.add('is-fading');
+        window.setTimeout(function () {
+          r = (r + 1) % heroReviews.length;
+          quote.textContent = heroReviews[r].q;
+          who.textContent = heroReviews[r].w;
+          txt.classList.remove('is-fading');
+        }, 450);
+      }, 6000);
+    }
+  }
+
   /* ---------- Gmail compose links (built in JS, never in the HTML) ---------- */
   document.querySelectorAll('a[data-gmail]').forEach(function (a) {
     var to = a.getAttribute('data-user') + '@' + a.getAttribute('data-domain');

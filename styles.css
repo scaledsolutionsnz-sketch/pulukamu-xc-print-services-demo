@@ -370,9 +370,10 @@ p:last-child { margin-bottom: 0; }
 }
 .rating__stars { display: flex; gap: 2px; color: #FFC53D; flex: none; }
 .rating__stars svg { width: 16px; height: 16px; }
-.rating__txt { color: #fff; font-size: 13.5px; line-height: 1.4; min-width: 0; }
-.rating__txt b { font-size: 15px; }
-.rating__txt span { display: block; color: rgba(255,255,255,.66); font-size: 12px; }
+.rating__txt { color: #fff; font-size: 13.5px; line-height: 1.4; min-width: 0; max-width: 46ch; transition: opacity .45s ease; }
+.rating__txt.is-fading { opacity: 0; }
+.rating__quote { display: block; }
+.rating__who { display: block; color: rgba(255,255,255,.66); font-size: 12px; margin-top: 2px; }
 
 .hero__scroll {
   position: absolute;
@@ -387,21 +388,6 @@ p:last-child { margin-bottom: 0; }
   text-transform: uppercase;
   text-decoration: none;
 }
-
-/* ---------- Trust strip ---------- */
-.trust { background: var(--paper); border-bottom: 1px solid var(--line); padding: 34px 0; }
-.trust__grid { display: grid; gap: 24px; }
-.trust__item { display: flex; gap: 14px; align-items: flex-start; }
-.trust__ico {
-  width: 42px; height: 42px; flex: none;
-  border-radius: 12px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  display: grid; place-items: center;
-}
-.trust__ico svg { width: 21px; height: 21px; }
-.trust__item h3 { font-size: 17px; margin-bottom: 3px; }
-.trust__item p { font-size: 15px; color: var(--muted); margin: 0; }
 
 /* ---------- Section head ---------- */
 .sec-head { margin-bottom: 34px; max-width: 62ch; }
@@ -741,7 +727,6 @@ p:last-child { margin-bottom: 0; }
 
 /* ---------- Breakpoints ---------- */
 @media (min-width: 600px) {
-  .trust__grid { grid-template-columns: repeat(2, 1fr); gap: 26px 30px; }
   .cards { grid-template-columns: repeat(2, 1fr); }
   .crew { grid-template-columns: repeat(2, 1fr); }
   .reviews { grid-template-columns: repeat(2, 1fr); }
@@ -755,8 +740,6 @@ p:last-child { margin-bottom: 0; }
   body { font-size: 17.5px; }
   .section { padding: 96px 0; }
   .wrap, .nav__inner { padding-inline: 32px; }
-  .trust { padding: 44px 0; }
-  .trust__grid { grid-template-columns: repeat(3, 1fr); }
   .cards { grid-template-columns: repeat(3, 1fr); gap: 22px; }
   .crew { grid-template-columns: repeat(3, 1fr); }
   .masonry { column-count: 3; column-gap: 18px; }
