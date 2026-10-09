@@ -10,13 +10,12 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pulukamu XC Print Services | Custom Printing &amp; Apparel, Christchurch">
 <meta property="og:description" content="Plastics supplied and printed, screen printing, embroidery and event merch for Christchurch clubs, churches, schools and small businesses.">
-<meta property="og:image" content="https://pulukamu-xc-print-services-demo.vercel.app/img/bottle-run-box.webp">
+<meta property="og:image" content="https://pulukamu-xc-print-services-demo.vercel.app/img/work/dtf-transfers-1920.webp">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -71,6 +70,8 @@ a{color:inherit;text-decoration:none}
 .nav-call:active{transform:translateY(0) scale(.98)}
 .nav-call svg{width:15px;height:15px}
 @media (min-width:960px){.nav-links{display:flex}.nav-call{margin-left:0}}
+.nav-call{white-space:nowrap}
+@media (max-width:499px){.nav-call{padding:0;width:44px;height:44px;justify-content:center}.nav-call .nc-num{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
 .burger{display:grid;place-items:center;width:44px;height:44px;background:none;border:1.5px solid var(--rule-strong);cursor:pointer;color:var(--ink)}
 .burger svg{width:20px;height:20px}
 .burger .x{display:none}
@@ -155,18 +156,26 @@ a{color:inherit;text-decoration:none}
 
 /* ---------- work ---------- */
 #work{background:var(--paper-2)}
-.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-@media (min-width:820px){.work-grid{grid-template-columns:2fr 1.2fr 1.2fr;grid-auto-rows:250px}}
-.shot{position:relative;overflow:hidden;border:1.5px solid var(--rule-strong);background:#fff}
-.shot img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
-.shot:hover img{transform:scale(1.045)}
-.shot figcaption{position:absolute;left:0;bottom:0;background:var(--paper);border-top:1.5px solid var(--ink);border-right:1.5px solid var(--ink);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px}
-@media (min-width:820px){
-  .shot:nth-child(1){grid-row:span 2}
-  .shot:nth-child(4){grid-column:2/4}
-  .shot:nth-child(6){grid-column:2/4}
-}
-@media (max-width:819px){.shot{aspect-ratio:1/1.15}}
+.work-filter{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.wf{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 15px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s}
+.wf span{font-weight:400;opacity:.55}
+.wf:hover{background:rgba(22,18,19,.06)}
+.wf[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.wf:focus-visible,.work-more:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+/* Photos at their own shape, in columns, so nothing is cropped */
+.work-grid{columns:2;column-gap:12px}
+@media (min-width:820px){.work-grid{columns:3;column-gap:16px}}
+@media (min-width:1180px){.work-grid{columns:4}}
+.shot{position:relative;display:block;overflow:hidden;margin:0 0 12px;break-inside:avoid;border:1.5px solid var(--rule-strong);background:#fff}
+@media (min-width:820px){.shot{margin-bottom:16px}}
+.shot[hidden]{display:none}
+.shot img,.shot video{display:block;width:100%;height:auto;transition:transform .7s var(--ease)}
+.shot:hover img{transform:scale(1.035)}
+.shot figcaption{position:absolute;left:0;bottom:0;max-width:calc(100% - 10px);background:var(--paper);border-top:1.5px solid var(--ink);border-right:1.5px solid var(--ink);font-family:var(--mono);font-size:10.5px;line-height:1.35;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px}
+@media (max-width:819px){.shot figcaption{font-size:9.5px;letter-spacing:.06em;padding:5px 8px}}
+.shot .vid-tag{position:absolute;top:0;right:0;background:var(--red);color:#fff;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;padding:4px 8px}
+.work-more{display:flex;margin:12px auto 0}
+.work-more[hidden]{display:none}
 .work-note{margin-top:26px;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;color:var(--ink-70);text-transform:uppercase}
 
 /* ---------- about ---------- */
@@ -269,7 +278,7 @@ footer{background:var(--ink);color:rgba(245,242,236,.6);padding:34px 0 40px;bord
     </nav>
     <a class="nav-call" href="tel:+6421146351">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-      021 114 6351
+      <span class="nc-num">021 114 6351</span>
     </a>
     <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu">
       <svg class="bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -320,9 +329,10 @@ footer{background:var(--ink);color:rgba(245,242,236,.6);padding:34px 0 40px;bord
     <div class="press rv on" data-d="1">
       <div class="press-frame">
         <span class="press-num">RUN 01 / PRESS CAM</span>
-        <div class="slide active"><img src="https://images.unsplash.com/photo-1614494718779-0ba0e88b9859?auto=format&amp;fit=crop&amp;w=1000&amp;h=1250&amp;q=72" alt="Screen printing carousel press with a yellow screen mid-run" width="1000" height="1250" fetchpriority="high" decoding="async"></div>
-        <div class="slide"><img src="https://images.unsplash.com/photo-1614494731690-53925976ea29?auto=format&amp;fit=crop&amp;w=1000&amp;h=1250&amp;q=72" alt="Magenta screen raised over black garments on the press" width="1000" height="1250" loading="lazy" decoding="async"></div>
-        <div class="slide"><img src="https://images.unsplash.com/photo-1634713157685-676e35324215?auto=format&amp;fit=crop&amp;w=1000&amp;h=1250&amp;q=72" alt="A run of black t-shirts laid out on the print line" width="1000" height="1250" loading="lazy" decoding="async"></div>
+        <div class="slide active"><img src="img/work/dtf-transfers-1920.webp" srcset="img/work/dtf-transfers-960.webp 960w, img/work/dtf-transfers-1920.webp 1920w" sizes="(min-width:960px) 560px, 100vw" alt="Mate Maʻa Tonga crest transfers coming off the printer" width="1440" height="1920" fetchpriority="high" decoding="async"></div>
+        <div class="slide"><img src="img/work/crest-print-closeup-1920.webp" srcset="img/work/crest-print-closeup-960.webp 960w, img/work/crest-print-closeup-1920.webp 1920w" sizes="(min-width:960px) 560px, 100vw" alt="Tonga College ʻAtele crest printed on a red polo" width="1440" height="1920" loading="lazy" decoding="async"></div>
+        <div class="slide"><img src="img/work/southstar-sweatshirt-1920.webp" srcset="img/work/southstar-sweatshirt-960.webp 960w, img/work/southstar-sweatshirt-1920.webp 1920w" sizes="(min-width:960px) 560px, 100vw" alt="Southstar logo printed on a black Cloke sweatshirt" width="1440" height="1920" loading="lazy" decoding="async"></div>
+        <div class="slide"><img src="img/work/cup-make-dishes-1920.webp" srcset="img/work/cup-make-dishes-960.webp 960w, img/work/cup-make-dishes-1920.webp 1920w" sizes="(min-width:960px) 560px, 100vw" alt="Reusable cup printed in green: Make dishes not waste, with a QR code" width="1440" height="1920" loading="lazy" decoding="async"></div>
       </div>
       <div class="qc" data-review-rotator>
         <div class="qc-top">
@@ -363,43 +373,43 @@ footer{background:var(--ink);color:rgba(245,242,236,.6);padding:34px 0 40px;bord
       <div class="spec-row rv">
         <span class="spec-num">01</span>
         <h3>Plastics, supplied &amp; printed</h3>
-        <img class="spec-thumb" src="img/bottle-run-box.webp" alt="" loading="lazy" width="300" height="220">
+        <img class="spec-thumb" src="img/work/bottle-run-box-960.webp" data-img-role="small" alt="" loading="lazy" width="720" height="960">
         <p>We supply the plastics and print them for you, so the whole job goes through one shop, from blank to finished run.</p>
       </div>
       <div class="spec-row rv">
         <span class="spec-num">02</span>
         <h3>T-shirts &amp; hoodies</h3>
-        <img class="spec-thumb" src="https://images.unsplash.com/photo-1586939735437-d61392bd039b?auto=format&amp;fit=crop&amp;w=300&amp;h=220&amp;q=70" alt="" loading="lazy" width="300" height="220">
+        <img class="spec-thumb" src="img/work/southstar-tee-960.webp" data-img-role="small" alt="" loading="lazy" width="720" height="960">
         <p>Screen printing on tees, hoodies, crews and singlets. One colour or full colour, front, back and sleeves.</p>
       </div>
       <div class="spec-row rv">
         <span class="spec-num">03</span>
         <h3>Team &amp; workwear</h3>
-        <img class="spec-thumb" src="https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&amp;fit=crop&amp;w=300&amp;h=220&amp;q=70" alt="" loading="lazy" width="300" height="220">
+        <img class="spec-thumb" src="img/work/polo-tonga-college-flat-960.webp" data-img-role="small" alt="" loading="lazy" width="720" height="960">
         <p>Playing kit, club hoodies, hi-vis and work polos, with names and numbers on the back if you need them.</p>
       </div>
       <div class="spec-row rv">
         <span class="spec-num">04</span>
         <h3>Embroidery</h3>
-        <img class="spec-thumb" src="https://images.unsplash.com/photo-1557462987-dd1c191266f0?auto=format&amp;fit=crop&amp;w=300&amp;h=220&amp;q=70" alt="" loading="lazy" width="300" height="220">
+        <img class="spec-thumb" src="img/embroidery-thumb.webp" data-img-role="small" alt="" loading="lazy" width="960" height="704">
         <p>Stitched logos on caps, polos, jackets and bags. The finish that lasts on gear people wear every day.</p>
       </div>
       <div class="spec-row rv">
         <span class="spec-num">05</span>
         <h3>Bottles &amp; drinkware</h3>
-        <img class="spec-thumb" src="img/southstar-bottle.webp" alt="" loading="lazy" width="300" height="220">
+        <img class="spec-thumb" src="img/work/southstar-bottle-960.webp" data-img-role="small" alt="" loading="lazy" width="540" height="960">
         <p>Drink bottles, event cups and product runs, printed one colour or full wrap. See them fresh off the press below.</p>
       </div>
       <div class="spec-row rv">
         <span class="spec-num">06</span>
         <h3>Event &amp; reunion merch</h3>
-        <img class="spec-thumb" src="https://images.unsplash.com/photo-1663433541063-ddab084d1126?auto=format&amp;fit=crop&amp;w=300&amp;h=220&amp;q=70" alt="" loading="lazy" width="300" height="220">
+        <img class="spec-thumb" src="img/work/polo-sf-old-boys-960.webp" data-img-role="small" alt="" loading="lazy" width="640" height="960">
         <p>Shirts for the tournament, the fundraiser, the church camp or the family reunion. Small runs welcome.</p>
       </div>
       <div class="spec-row rv">
         <span class="spec-num">07</span>
         <h3>Artwork set-up</h3>
-        <img class="spec-thumb" src="https://images.unsplash.com/photo-1456456496250-d5e7c0a9b44d?auto=format&amp;fit=crop&amp;w=300&amp;h=220&amp;q=70" alt="" loading="lazy" width="300" height="220">
+        <img class="spec-thumb" src="img/work/polo-atele-mockup-960.webp" data-img-role="small" alt="" loading="lazy" width="960" height="668">
         <p>Bring a rough sketch, a photo of an old shirt or a logo off your phone. We redraw it so it prints clean.</p>
       </div>
     </div>
@@ -413,14 +423,44 @@ footer{background:var(--ink);color:rgba(245,242,236,.6);padding:34px 0 40px;bord
       <h2>Off the press</h2>
       <span class="idx"><b>02</b> / Real jobs</span>
     </div>
-    <div class="work-grid">
-      <figure class="shot rv"><img src="img/bottle-run-box.webp" alt="A box of freshly printed measuring bottles ready for pickup" loading="lazy" width="765" height="1020"><figcaption>Production run · boxed</figcaption></figure>
-      <figure class="shot rv" data-d="1"><img src="img/southstar-bottle.webp" alt="Blue drink bottle wrap-printed with the Southstar logo" loading="lazy" width="573" height="1020"><figcaption>Southstar · wrap print</figcaption></figure>
-      <figure class="shot rv" data-d="2"><img src="img/kombi-keg-cup.webp" alt="Reusable event cup printed with Kombi Keg van artwork" loading="lazy" width="765" height="1020"><figcaption>Kombi Keg · event cup</figcaption></figure>
-      <figure class="shot rv" data-d="1"><img src="img/goldenbay-camelbak.webp" alt="Camelbak cycling bottle printed for Golden Bay Legendary Cycling" loading="lazy" width="765" height="1020"><figcaption>Golden Bay · Camelbak</figcaption></figure>
-      <figure class="shot rv" data-d="2"><img src="img/xclean-bottle.webp" alt="X-Clean bottle printed in three colours" loading="lazy" width="765" height="1020"><figcaption>X-Clean · 3 colour</figcaption></figure>
-      <figure class="shot rv" data-d="3"><img src="img/nalgene-floral.webp" alt="Red Nalgene bottle with a light blue floral band print" loading="lazy" width="765" height="1020"><figcaption>Nalgene · floral band</figcaption></figure>
+    <div class="work-filter rv" role="group" aria-label="Show jobs">
+      <button type="button" class="wf" data-f="all" aria-pressed="true">All <span>30</span></button>
+      <button type="button" class="wf" data-f="apparel" aria-pressed="false">Apparel <span>17</span></button>
+      <button type="button" class="wf" data-f="drink" aria-pressed="false">Cups &amp; bottles <span>13</span></button>
     </div>
+    <div class="work-grid">
+      <figure class="shot" data-cat="apparel"><img src="img/work/dtf-transfers-960.webp" srcset="img/work/dtf-transfers-960.webp 960w, img/work/dtf-transfers-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Mate Maʻa Tonga crest transfers coming off the printer" loading="lazy" decoding="async" width="720" height="960"><figcaption>Crest transfers · on the printer</figcaption></figure>
+      <figure class="shot" data-cat="drink"><img src="img/work/cup-make-dishes-960.webp" srcset="img/work/cup-make-dishes-960.webp 960w, img/work/cup-make-dishes-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Reusable cup printed in green: Make dishes not waste, with a QR code" loading="lazy" decoding="async" width="720" height="960"><figcaption>Make dishes not waste · QR</figcaption></figure>
+      <figure class="shot" data-cat="apparel"><video src="img/work/sf-old-boys-print.mp4" poster="img/work/sf-old-boys-print-poster.webp" muted loop playsinline preload="metadata" width="464" height="832" aria-label="Video: the gold San Francisco Old Boys print on a red polo, close up"></video><span class="vid-tag">VIDEO</span><figcaption>SF Old Boys · print close-up</figcaption></figure>
+      <figure class="shot" data-cat="drink"><img src="img/work/goldenbay-camelbak-960.webp" srcset="img/work/goldenbay-camelbak-960.webp 960w, img/work/goldenbay-camelbak-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Camelbak cycling bottle printed for Golden Bay Legendary Cycling" loading="lazy" decoding="async" width="720" height="960"><figcaption>Golden Bay · Camelbak</figcaption></figure>
+      <figure class="shot" data-cat="apparel"><img src="img/work/polo-champion-2026-960.webp" srcset="img/work/polo-champion-2026-960.webp 960w, img/work/polo-champion-2026-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Front and back of a red Mate Maʻa Tonga Champion 2026 polo" loading="lazy" decoding="async" width="960" height="768"><figcaption>Champion 2026 · polo</figcaption></figure>
+      <figure class="shot" data-cat="drink"><img src="img/work/cup-brewtown-960.webp" srcset="img/work/cup-brewtown-960.webp 960w, img/work/cup-brewtown-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Frosted cup printed with the Brewtown Upper Hutt logo" loading="lazy" decoding="async" width="720" height="960"><figcaption>Brewtown · cup</figcaption></figure>
+      <figure class="shot" data-cat="apparel"><img src="img/work/crest-print-closeup-960.webp" srcset="img/work/crest-print-closeup-960.webp 960w, img/work/crest-print-closeup-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Tonga College ʻAtele crest printed on a red polo" loading="lazy" decoding="async" width="720" height="960"><figcaption>Tonga College · crest print</figcaption></figure>
+      <figure class="shot" data-cat="drink"><img src="img/work/kombi-keg-cup-960.webp" srcset="img/work/kombi-keg-cup-960.webp 960w, img/work/kombi-keg-cup-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Reusable event cup printed with Kombi Keg van artwork" loading="lazy" decoding="async" width="720" height="960"><figcaption>Kombi Keg · event cup</figcaption></figure>
+      <figure class="shot" data-cat="apparel"><img src="img/work/southstar-sweatshirt-960.webp" srcset="img/work/southstar-sweatshirt-960.webp 960w, img/work/southstar-sweatshirt-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Black Cloke sweatshirt printed with the Southstar logo" loading="lazy" decoding="async" width="720" height="960"><figcaption>Southstar · sweatshirt</figcaption></figure>
+      <figure class="shot" data-cat="drink"><img src="img/work/cup-soho-wines-960.webp" srcset="img/work/cup-soho-wines-960.webp 960w, img/work/cup-soho-wines-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Cup printed in pink with Soho Wines lettering" loading="lazy" decoding="async" width="720" height="960"><figcaption>Soho Wines · cup</figcaption></figure>
+      <figure class="shot" data-cat="apparel"><img src="img/work/polos-boxed-order-960.webp" srcset="img/work/polos-boxed-order-960.webp 960w, img/work/polos-boxed-order-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Box of finished red and grey polos with the order count on a sticky note" loading="lazy" decoding="async" width="720" height="960"><figcaption>Order boxed · counted</figcaption></figure>
+      <figure class="shot" data-cat="drink"><img src="img/work/nalgene-floral-960.webp" srcset="img/work/nalgene-floral-960.webp 960w, img/work/nalgene-floral-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Red Nalgene bottle with a light blue floral band print" loading="lazy" decoding="async" width="720" height="960"><figcaption>Nalgene · floral band</figcaption></figure>
+      <figure class="shot" data-cat="apparel"><img src="img/work/polo-sf-old-boys-960.webp" srcset="img/work/polo-sf-old-boys-960.webp 960w, img/work/polo-sf-old-boys-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Back of a red polo printed San Francisco Old Boys down the spine" loading="lazy" decoding="async" width="640" height="960"><figcaption>SF Old Boys · back print</figcaption></figure>
+      <figure class="shot" data-cat="drink"><img src="img/work/cup-futurity-960.webp" srcset="img/work/cup-futurity-960.webp 960w, img/work/cup-futurity-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Futurity reusable cup printed with a QR code and recycling notes" loading="lazy" decoding="async" width="720" height="960"><figcaption>Futurity · fine print</figcaption></figure>
+      <figure class="shot" data-cat="apparel"><img src="img/work/polo-atele-mockup-960.webp" srcset="img/work/polo-atele-mockup-960.webp 960w, img/work/polo-atele-mockup-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Front and back mock-up of the ʻAtele polo" loading="lazy" decoding="async" width="960" height="668"><figcaption>ʻAtele · mock-up</figcaption></figure>
+      <figure class="shot" data-cat="drink"><img src="img/work/xclean-bottle-960.webp" srcset="img/work/xclean-bottle-960.webp 960w, img/work/xclean-bottle-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="X-Clean bottle printed in three colours" loading="lazy" decoding="async" width="720" height="960"><figcaption>X-Clean · 3 colour</figcaption></figure>
+      <figure class="shot" data-cat="apparel"><img src="img/work/polo-tonga-college-flat-960.webp" srcset="img/work/polo-tonga-college-flat-960.webp 960w, img/work/polo-tonga-college-flat-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Red and grey Tonga College polo laid flat" loading="lazy" decoding="async" width="720" height="960"><figcaption>Tonga College · polo</figcaption></figure>
+      <figure class="shot" data-cat="drink"><img src="img/work/cup-blacken-960.webp" srcset="img/work/cup-blacken-960.webp 960w, img/work/cup-blacken-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Cup printed with the Blacken logo beside a stack of cups" loading="lazy" decoding="async" width="720" height="960"><figcaption>Blacken · cup</figcaption></figure>
+      <figure class="shot" data-cat="apparel"><img src="img/work/southstar-tee-960.webp" srcset="img/work/southstar-tee-960.webp 960w, img/work/southstar-tee-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Southstar logo printed on a black tee, close up" loading="lazy" decoding="async" width="720" height="960"><figcaption>Southstar · tee</figcaption></figure>
+      <figure class="shot" data-cat="drink"><img src="img/work/southstar-bottle-960.webp" srcset="img/work/southstar-bottle-960.webp 960w, img/work/southstar-bottle-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Blue drink bottle wrap-printed with the Southstar logo" loading="lazy" decoding="async" width="540" height="960"><figcaption>Southstar · wrap print</figcaption></figure>
+      <figure class="shot" data-cat="apparel"><img src="img/work/polos-packing-960.webp" srcset="img/work/polos-packing-960.webp 960w, img/work/polos-packing-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Printed polos being packed into a box with the packing slip" loading="lazy" decoding="async" width="720" height="960"><figcaption>Packing a run</figcaption></figure>
+      <figure class="shot" data-cat="drink"><img src="img/work/bottle-run-box-960.webp" srcset="img/work/bottle-run-box-960.webp 960w, img/work/bottle-run-box-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="A box of freshly printed measuring bottles ready for pickup" loading="lazy" decoding="async" width="720" height="960"><figcaption>Production run · boxed</figcaption></figure>
+      <figure class="shot" data-cat="apparel"><img src="img/work/tonga-crest-artwork-960.webp" srcset="img/work/tonga-crest-artwork-960.webp 960w, img/work/tonga-crest-artwork-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Mate Maʻa Tonga crest artwork" loading="lazy" decoding="async" width="698" height="960"><figcaption>Crest artwork</figcaption></figure>
+      <figure class="shot" data-cat="drink"><img src="img/work/cup-kombi-keg-back-960.webp" srcset="img/work/cup-kombi-keg-back-960.webp 960w, img/work/cup-kombi-keg-back-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="The back of the Kombi Keg cup, printed with measuring marks" loading="lazy" decoding="async" width="720" height="960"><figcaption>Kombi Keg · measure marks</figcaption></figure>
+      <figure class="shot" data-cat="apparel"><img src="img/work/polo-pulukamu-sleeve-960.webp" srcset="img/work/polo-pulukamu-sleeve-960.webp 960w, img/work/polo-pulukamu-sleeve-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Red polo printed with the Pulukamu name and a crest, close up" loading="lazy" decoding="async" width="720" height="960"><figcaption>Pulukamu · own kit</figcaption></figure>
+      <figure class="shot" data-cat="drink"><img src="img/work/cup-measure-960.webp" srcset="img/work/cup-measure-960.webp 960w, img/work/cup-measure-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Frosted cup printed with measuring marks, on the workbench" loading="lazy" decoding="async" width="720" height="960"><figcaption>Measure marks · cup</figcaption></figure>
+      <figure class="shot" data-cat="apparel"><img src="img/work/polo-atele-render-960.webp" srcset="img/work/polo-atele-render-960.webp 960w, img/work/polo-atele-render-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Red and grey polo with ʻAtele printed down the front" loading="lazy" decoding="async" width="798" height="960"><figcaption>ʻAtele · front print</figcaption></figure>
+      <figure class="shot" data-cat="apparel"><img src="img/work/polo-blank-red-white-960.webp" srcset="img/work/polo-blank-red-white-960.webp 960w, img/work/polo-blank-red-white-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Plain red and white polo before printing" loading="lazy" decoding="async" width="960" height="960"><figcaption>Polo blank · red/white</figcaption></figure>
+      <figure class="shot" data-cat="apparel"><img src="img/work/polo-blank-red-960.webp" srcset="img/work/polo-blank-red-960.webp 960w, img/work/polo-blank-red-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Plain red polo before printing" loading="lazy" decoding="async" width="960" height="886"><figcaption>Polo blank · red</figcaption></figure>
+      <figure class="shot" data-cat="apparel"><img src="img/work/aramex-corner-960.webp" srcset="img/work/aramex-corner-960.webp 960w, img/work/aramex-corner-1920.webp 1920w" sizes="(min-width:1180px) 290px, (min-width:820px) 31vw, 47vw" alt="Red-walled Aramex corner with a Temu returns drop box and three chairs" loading="lazy" decoding="async" width="960" height="720"><figcaption>Aramex · Temu returns drop</figcaption></figure>
+    </div>
+    <button type="button" class="btn btn-ink work-more">Show all 30 jobs</button>
     <p class="work-note rv">If it holds still long enough, we can probably print on it.</p>
   </div>
 </section>
@@ -596,6 +636,42 @@ footer{background:var(--ink);color:rgba(245,242,236,.6);padding:34px 0 40px;bord
       slides[i].classList.add('active');
     },5000);
   }
+
+  /* Off the press: filter by kind of job; "All" shows the first 12 until "Show all" is pressed */
+  var shots=Array.prototype.slice.call(document.querySelectorAll('.work-grid .shot'));
+  var wfs=document.querySelectorAll('.wf'),more=document.querySelector('.work-more'),FIRST=12,expanded=false,cur='all';
+  function showWork(){
+    var n=0;
+    shots.forEach(function(s){
+      var match=cur==='all'||s.getAttribute('data-cat')===cur;
+      var show=match&&(cur!=='all'||expanded||n<FIRST);
+      if(match)n++;
+      s.hidden=!show;
+    });
+    if(more)more.hidden=!(cur==='all'&&!expanded&&n>FIRST);
+  }
+  wfs.forEach(function(b){
+    b.addEventListener('click',function(){
+      cur=b.getAttribute('data-f');
+      wfs.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+      showWork();
+    });
+  });
+  if(more)more.addEventListener('click',function(){
+    expanded=true;showWork();
+    var next=shots[FIRST]&&shots[FIRST].querySelector('img,video');
+    if(next&&next.focus){next.setAttribute('tabindex','-1');next.focus({preventScroll:true});}
+  });
+  showWork();
+
+  /* Gallery video: plays muted while on screen, stops when scrolled away. With reduced motion it waits for a tap. */
+  document.querySelectorAll('.shot video').forEach(function(v){
+    if(reduced){v.removeAttribute('autoplay');v.controls=true;return;}
+    if(!('IntersectionObserver' in window)){v.play().catch(function(){});return;}
+    new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){v.play().catch(function(){});}else{v.pause();}});
+    },{threshold:.25}).observe(v);
+  });
 
   var rot=document.querySelector('[data-review-rotator]');
   if(rot&&!reduced){
